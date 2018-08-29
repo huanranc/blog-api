@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+/dist
+
+src/**/*.js
+src/**/*.js.map
+
+### Node ###
+package-lock.json
+yarn-lock.json
+yarn.lock
