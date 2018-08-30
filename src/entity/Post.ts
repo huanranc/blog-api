@@ -1,22 +1,41 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable} from "typeorm";
-import {Category} from "./Category";
+import {Terms} from "./Terms";
 
 @Entity()
 export class Post {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @Column()
+  author: string;
+  
+  @Column("text")
+  title: string;
 
-    @Column()
-    title: string;
+  @Column("text")
+  excerpt: string;
 
-    @Column("text")
-    text: string;
+  @Column("longtext")
+  content: string;
 
-    @ManyToMany(type => Category, {
-        cascade: true
-    })
-    @JoinTable()
-    categories: Category[];
+  @Column()
+  status: boolean;
 
+  @Column()
+  date: string;
+
+  @Column()
+  date_gmt: string;
+
+  @Column()
+  modified: string;
+
+  @Column()
+  modified_gmt: string;
+
+  @ManyToMany(type => Terms, {
+    cascade: true
+  })
+  @JoinTable()
+  Terms: Terms[];
 }
