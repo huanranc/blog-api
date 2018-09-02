@@ -3,6 +3,7 @@ import {postGetByIdAction} from "./controller/PostGetByIdAction";
 import {postSaveAction} from "./controller/PostSaveAction";
 
 import {postLogin} from "./controller/user/PostLogin";
+import {postAddPost} from "./controller/Post/PostAdd";
 
 /**
  * All application routes.
@@ -27,5 +28,10 @@ export const AppRoutes = [
         path: "/login",
         method: "post",
         action: postLogin
+    },
+    {
+        path: "/newPost",
+        method: "post",
+        action: postAddPost
     }
 ];

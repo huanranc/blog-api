@@ -37,5 +37,5 @@ export class Post {
     cascade: true
   })
   @JoinTable()
-  Terms: Terms[];
+  terms: Terms[];
 }
