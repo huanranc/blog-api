@@ -1,29 +1,12 @@
-import {postGetAllAction} from "./controller/PostGetAllAction";
-import {postGetByIdAction} from "./controller/PostGetByIdAction";
-import {postSaveAction} from "./controller/PostSaveAction";
-
 import {postLogin} from "./controller/user/PostLogin";
 import {postAddPost} from "./controller/Post/PostAdd";
+import {postDel} from "./controller/Post/PostDel";
+import {postUpdate} from "./controller/Post/postUpdate";
 
 /**
  * All application routes.
  */
 export const AppRoutes = [
-    {
-        path: "/posts",
-        method: "get",
-        action: postGetAllAction
-    },
-    {
-        path: "/posts/:id",
-        method: "get",
-        action: postGetByIdAction
-    },
-    {
-        path: "/posts",
-        method: "post",
-        action: postSaveAction
-    },
     {
         path: "/login",
         method: "post",
@@ -33,5 +16,15 @@ export const AppRoutes = [
         path: "/newPost",
         method: "post",
         action: postAddPost
+    },
+    {
+        path: "/delPost/:id",
+        method: "get",
+        action: postDel
+    },
+    {
+        path: "/updatePost/:id",
+        method: "post",
+        action: postUpdate
     }
 ];
