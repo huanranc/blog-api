@@ -16,6 +16,7 @@ export async function postDel(context: Context) {
   } else {
     updatePost.status = false;
     await posts.save(updatePost);
+    context.type = "application/json";
     context.body = updatePost;
   }
 }

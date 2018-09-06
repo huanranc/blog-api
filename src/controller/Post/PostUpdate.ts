@@ -18,6 +18,7 @@ export async function postUpdate(context: Context) {
   } else {
       updatePost.status = true,
       updatePost.author = updatePost.author,
+      updatePost.taxonomyId = updatePost.taxonomyId,
       updatePost.title = updateResult.title?updateResult.title:updatePost.title,
       updatePost.excerpt = updateResult.excerpt?updateResult.excerpt:updatePost.excerpt,
       updatePost.content = updateResult.content?updateResult.content:updatePost.content,
@@ -26,6 +27,7 @@ export async function postUpdate(context: Context) {
       updatePost.modified = Math.round(new Date().getTime() / 1000).toString(),
       updatePost.modified_gmt = Math.round(new Date().getTime() / 1000).toString()
     await posts.save(updatePost);
+    context.type = "application/json";
     context.body = {
       status: "200",
       updatePost

@@ -8,6 +8,9 @@ export class Post {
 
   @Column()
   author: string;
+
+  @Column()
+  taxonomyId: number;
   
   @Column("text")
   title: string;

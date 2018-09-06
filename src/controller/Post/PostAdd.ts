@@ -1,8 +1,8 @@
-import {Context} from "koa";
-import {getManager} from "typeorm";
-import {Terms} from "../../entity/Terms";
-import {Taxonomy} from "../../entity/Taxonomy";
-import {Post} from "../../entity/Post";
+import { Context } from "koa";
+import { getManager } from "typeorm";
+import { Terms } from "../../entity/Terms";
+import { Taxonomy } from "../../entity/Taxonomy";
+import { Post } from "../../entity/Post";
 
 // AddPost
 export async function postAddPost(context: Context) {
@@ -15,27 +15,29 @@ export async function postAddPost(context: Context) {
 
   const resultTerms = await addTerms.create(context.request.body);
 
-  const [allcount, termCount] = await addTerms.findAndCount();
-  console.log("这里是",termCount)
-
   const requestPosts = await addPosts.create(context.request.body);
 
-  await addPosts.save({
-    title: requestPosts.title,
-    excerpt: requestPosts.excerpt,
-    content: requestPosts.content,
-    status: true,
-    date: Math.round(new Date().getTime() / 1000).toString(),
-    date_gmt: Math.round(new Date().getTime() / 1000).toString(),
-    modified: Math.round(new Date().getTime() / 1000).toString(),
-    modified_gmt: Math.round(new Date().getTime() / 1000).toString(),
-    author: requestPosts.author?requestPosts.author:'huanranc',
-    terms: [resultTerms]
-  })
+  const resultTaxonmy = await addTaxonomy.findOne(requestPosts.taxonomyId)
 
+  const newPost = new Post();
+  newPost.title = requestPosts.title,
+    newPost.excerpt = requestPosts.excerpt,
+    newPost.content = requestPosts.content,
+    newPost.status = true,
+    newPost.date = Math.round(new Date().getTime() / 1000).toString(),
+    newPost.date_gmt = Math.round(new Date().getTime() / 1000).toString(),
+    newPost.modified = Math.round(new Date().getTime() / 1000).toString(),
+    newPost.modified_gmt = Math.round(new Date().getTime() / 1000).toString(),
+    newPost.author = requestPosts.author ? requestPosts.author : 'huanranc',
+    newPost.terms = [resultTerms],
+    newPost.taxonomyId = requestPosts.taxonomyId
+  await addPosts.save(newPost)
+
+  context.type = "application/json";
   context.body = {
     status: "200",
     requestPosts,
-    resultTerms
+    resultTerms,
+    resultTaxonmy
   };
 }

@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+// import {Post} from "./Post";
 
 @Entity()
 export class Taxonomy {
@@ -6,14 +7,11 @@ export class Taxonomy {
   id: number;
 
   @Column()
-  post_id: number
-
-  @Column()
-  term_id: number
-
-  @Column()
-  name: string
+  nameTaxon: string
 
   @Column("text")
   description: string
+
+//   @OneToMany(type => Post, post => post.taxonomy)
+//   post: Post[];
 }
