@@ -13,7 +13,9 @@ export async function termFindById(context: Context) {
 
   context.type = "application/json";
   context.body =  {
-    term: terms,
-    taxonmy
+    message: {
+      term: terms,
+      taxonmy
+    }
   };
 }
