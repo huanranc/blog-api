@@ -5,6 +5,7 @@ import { postAddPost } from "./controller/Post/PostAdd";
 import { postDel } from "./controller/Post/PostDel";
 import { postUpdate } from "./controller/Post/postUpdate";
 import { taxonomyAdd } from "./controller/Post/TaxonomyAdd";
+import { termFindById } from "./controller/Post/TermsTaxon";
 
 /**
  * All application routes.
@@ -45,5 +46,10 @@ export const AppRoutes = [
         path: "/newTaxon",
         method: "post",
         action: taxonomyAdd
+    },
+    {
+        path: '/term',
+        method: 'post',
+        action: termFindById
     }
 ];
