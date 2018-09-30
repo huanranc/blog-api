@@ -11,6 +11,9 @@ export class Post {
 
   @Column()
   taxonomyId: number;
+
+  @Column()
+  tags: string;
   
   @Column("text")
   title: string;

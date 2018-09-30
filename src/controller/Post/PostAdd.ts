@@ -30,6 +30,7 @@ export async function postAddPost(context: Context) {
     newPost.modified_gmt = Math.round(new Date().getTime() / 1000).toString(),
     newPost.author = requestPosts.author ? requestPosts.author : 'huanranc',
     newPost.terms = [resultTerms],
+    newPost.tags = requestPosts.tags,
     newPost.taxonomyId = requestPosts.taxonomyId
   await addPosts.save(newPost)
 

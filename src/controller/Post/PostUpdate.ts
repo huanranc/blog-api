@@ -19,6 +19,7 @@ export async function postUpdate(context: Context) {
       updatePost.status = true,
       updatePost.author = updatePost.author,
       updatePost.taxonomyId = updatePost.taxonomyId,
+      updatePost.tags = updatePost.tags,
       updatePost.title = updateResult.title?updateResult.title:updatePost.title,
       updatePost.excerpt = updateResult.excerpt?updateResult.excerpt:updatePost.excerpt,
       updatePost.content = updateResult.content?updateResult.content:updatePost.content,
