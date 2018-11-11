@@ -16,8 +16,9 @@ export async function postUpdate(context: Context) {
     }
     return;
   } else {
-      updatePost.status = true,
-      updatePost.author = updatePost.author,
+      console.log(updateResult.status)
+      updatePost.status = updateResult.status,
+      updatePost.author = updateResult.author,
       updatePost.taxonomyId = updatePost.taxonomyId,
       updatePost.tags = updatePost.tags,
       updatePost.title = updateResult.title?updateResult.title:updatePost.title,
