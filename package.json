@@ -4,8 +4,8 @@
   "description": "My blog Api",
   "main": "app.js",
   "scripts": {
-    "start": "tsc && ts-node  src/app.ts",
-    "watch": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/app.ts",
+    "start": "cross-env NODE_ENV=development nodemon -w ./src -e ts,tsx,js --exec ts-node src/app.ts",
+    "watch": "nodemon --watch ./src -e ts,tsx --exec ts-node ./src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "huanranc",
@@ -25,7 +25,6 @@
     "typeorm": "^0.2.7"
   },
   "devDependencies": {
-    "nodemon": "^1.18.3",
     "typescript": "^3.0.1"
   }
 }
