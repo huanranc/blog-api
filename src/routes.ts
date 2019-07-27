@@ -12,43 +12,43 @@ import { termFindById } from "./controller/Post/TermsTaxon";
  */
 export const AppRoutes = [
     {
-        path: "api/posts",
+        path: "/api/posts",
         method: "get",
         action: postFindAll
 
     },
     {
-        path: "api/post/:id",
+        path: "/api/post/:id",
         method: "get",
         action: postFindById
     },
     {
-        path: "api/login",
+        path: "/api/login",
         method: "post",
         action: postLogin
     },
     {
-        path: "api/newPost",
+        path: "/api/newPost",
         method: "post",
         action: postAddPost
     },
     {
-        path: "api/delPost/:id",
+        path: "/api/delPost/:id",
         method: "patch",
         action: postDel
     },
     {
-        path: "api/updatePost/:id",
+        path: "/api/updatePost/:id",
         method: "post",
         action: postUpdate
     },
     {
-        path: "api/newTaxon",
+        path: "/api/newTaxon",
         method: "post",
         action: taxonomyAdd
     },
     {
-        path: 'api/term',
+        path: '/api/term',
         method: 'post',
         action: termFindById
     }
