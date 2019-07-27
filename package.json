@@ -17,6 +17,7 @@
     "@types/node": "^10.9.3",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
+    "koa-cors": "^0.0.16",
     "koa-router": "^7.4.0",
     "mysql": "^2.16.0",
     "reflect-metadata": "^0.1.12",

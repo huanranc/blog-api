@@ -1,9 +1,9 @@
 import { postFindAll } from './controller/Post/PostFindAll';
 import { postFindById } from './controller/Post/PostFindById';
-import { postLogin } from "./controller/user/PostLogin";
+import { postLogin } from "./controller/User/PostLogin";
 import { postAddPost } from "./controller/Post/PostAdd";
 import { postDel } from "./controller/Post/PostDel";
-import { postUpdate } from "./controller/Post/postUpdate";
+import { postUpdate } from "./controller/Post/PostUpdate";
 import { taxonomyAdd } from "./controller/Post/TaxonomyAdd";
 import { termFindById } from "./controller/Post/TermsTaxon";
 
